@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CHANGE ME</title>
+    <title>Micah's website</title>
+    <link rel="stylesheet"
+    href="style.css" />
   </head>
 
   <body>
     <!-- All content goes here -->
     <div id="all-contents">
-      
+      <nav>
+        <h1>
+          Micah's chill website
+        </h1>
+        <ul id="nav-ul">
+          <li>
+            <a href="index.html">
+              Home
+            </a>
+          </li class="nav-li">
+           
+          <li>
+             <a href="portfolio.html">Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+     
+      <main>
+        <div class="sidebar">
+          <img class="sidebar-img" 
+          src="data:image/png;base64,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">
+        </div>
+
+        <div class="content">
+         
+          <h2>
+            Micah Mire
+          </h2>
+
+          <p>
+            Student at St Amant High school
+          </p>
+
+         <div id="interests">
+            <h3>
+              Interests 
+            </h3>
+            <ul>
+              <li>
+                Band
+              </li>
+              <li>
+                Video games
+              </li>
+              <li>
+                Writing stories
+              </li>
+            </ul>
+         </div>
+        </div>
+
+      </main>
     </div>
   </body>
 </html>
