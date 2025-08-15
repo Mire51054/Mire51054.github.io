@@ -1,6 +1,6 @@
 body {
     background: rgb(25, 50, 88);
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding: 10px;
     font-family: Arial, sans-serif;
 }
@@ -17,6 +17,7 @@ nav {
     display: flex;
     padding: 10px;
     margin-bottom: 20px;
+    border: 4px rgb(225, 225, 225) ridge;
 }
 
 h1 {
@@ -49,15 +50,18 @@ main {
     background: rgb(67, 121, 191);
     display: flex;
     margin-top: 20px;
+    border: 4px rgb(225, 225, 225) ridge;
 }
 
 .sidebar {
     margin-right: 25px;
     padding: 10px;
+
 }
 
 .sidebar-img {
     width: 200px;
+    border: 4px rgb(225, 225, 225) ridge;
 }
 
 .content {
