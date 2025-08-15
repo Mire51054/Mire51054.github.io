@@ -95,6 +95,7 @@ h2, h3 {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
+  border: 4px rgb(225, 225, 225) ridge;
 }
 
 #portfolio li:hover {
