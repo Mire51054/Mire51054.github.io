@@ -41,7 +41,7 @@ h1 {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #00e1ff;
 }
 
@@ -91,7 +91,7 @@ h2, h3 {
 }
 
 #portfolio li {
-  background: #fff;
+  background: #7a9cd3;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -104,5 +104,5 @@ h2, h3 {
 
 #portfolio a {
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
 }
