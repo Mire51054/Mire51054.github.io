@@ -33,7 +33,7 @@ $(function () {
     // TODO 2 - Create Platforms
     createPlatform(200, 620, 100, 10, "indigo");
     createPlatform(100, 500, 100, 10, "indigo");
-    createPlatform(400, 400, 100, 10, "indigo");
+    createPlatform(390, 400, 110, 10, "indigo");
     createPlatform(400, 300, 100, 10, "indigo");
     createPlatform(500, 100, 10, 650, "indigo");
     createPlatform(200, 200, 100, 10, "indigo");
@@ -71,7 +71,7 @@ $(function () {
     createCannon("top", 400, 1200);
     createCannon("top", 700, 700);
     createCannon("top", 900, 700);
-    createCannon("top", 1400, 500);
+    createCannon("top", 1400, 1);
 
     
     
