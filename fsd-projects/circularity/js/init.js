@@ -7,7 +7,7 @@ var init = function (window) {
         app = window.opspark.makeApp(),
         canvas = app.canvas, 
         view = app.view,
-        fps = draw.fps('#000');
+        fps = draw.fps('#00ffffff');
         
     
     window.opspark.makeGame = function() {
@@ -27,8 +27,8 @@ var init = function (window) {
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
-            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 5, 5);
+            circle = draw.randomCircleInArea(canvas, false, false, "#0011ffff", 3);
+            physikz.addRandomVelocity(circle, canvas, 75, 75);
             view.addChild(circle);
             circles.push(circle);
         }
