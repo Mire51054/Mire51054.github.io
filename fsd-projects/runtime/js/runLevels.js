@@ -14,11 +14,11 @@ var runLevels = function (window) {
     var levelData = window.opspark.levelData;
 
     // set this to true or false depending on if you want to see hitzones
-    game.setDebugMode(true);
+    game.setDebugMode(false);
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
-    function createSawBlade (x, y) {
+    function createSawBlade(x,y) {
     var hitZoneSize = 25;
     var damageFromObstacle = 10;
     var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
@@ -30,23 +30,88 @@ var runLevels = function (window) {
     obstacleImage.y = -25;
     sawBladeHitZone.addChild(obstacleImage);
     }
-    createSawBlade(1000, 250)
-    createSawBlade(1300, 300)
-    createSawBlade(1800, 200)
-     game.createGameItem();{
-    var enemy = game.createGameItem("enemy", 25);
+    
+     
+    function createEnemy(x,y) {
+      var enemy = game.createGameItem("enemy", 25);
     var redSquare = draw.rect(50, 50, "red");
     redSquare.x = -25;
     redSquare.y = -25;
     enemy.addChild(redSquare);
-    enemy.x = 400;
-    enemy.y = groundY - 50;
-    }
+    enemy.x = x
+    enemy.y = y
     game.addGameItem(enemy);
+    enemy.velocityX = -2;
+    enemy.rotationalVelocity = -9999999999999999999999999;
+    enemy.onPlayerCollision = function() {
+     game.changeIntegrity(-10)
+    };
+    enemy.onProjectileCollision = function() {
+     game.increaseScore(100);
+     enemy.flyTo(5000, -500);
+    };
+    }
+    function createReward(x,y) {
+      var reward = game.createGameItem("reward", 25);
+    var yellowSquare = draw.rect(50, 50, "yellow");
+    yellowSquare.x = -25;
+    yellowSquare.y = -25;
+    reward.addChild(yellowSquare);
+    reward.x = x
+    reward.y = y
+    game.addGameItem(reward);
+    reward.velocityX = -2;
+    reward.rotationalVelocity = -9999999999999999999999999;
+    reward.onPlayerCollision = function() {
+     game.increaseScore(100);
+     reward.flyTo(5000, -500);
+    };
+    }
+     function createMarker(x,y) {
+      var marker = game.createGameItem("marker", 25);
+    var blueSquare = draw.rect(50, 50, "blue");
+    blueSquare.x = -25;
+    blueSquare.y = -25;
+    marker.addChild(blueSquare);
+    marker.x = x
+    marker.y = y
+    game.addGameItem(marker);
+    marker.velocityX = -2;
+    marker.rotationalVelocity = -9999999999999999999999999999999;
+    marker.onPlayerCollision = function() {
+     startLevel()
+    };
+    marker.onProjectileCollision = function() {
+      startLevel()
+    }
+  }
+    
+    
+  
     function startLevel() {
       // TODO 13 goes below here
+    var level = levelData[currentLevel];
+    var levelObjects = level.gameItems;
+    for(var i = 0; i < levelObjects.length; i++) {
+      var gameItem = levelObjects[i];
+      var gameItemType = gameItem.type;
+      var itemX = gameItem.x;
+      var itemY = gameItem.y;
 
+      if(gameItemType === "sawblade"){
+        createSawBlade(itemX, itemY)
+      }
+      else if(gameItemType === "enemy"){
+        createEnemy(itemX, itemY)
+      }
+      else if(gameItemType === "reward"){
+        createReward(itemX, itemY)
+      }
+      else if(gameItemType === "marker"){
+        createMarker(itemX, itemY)
+      }
 
+    }
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
